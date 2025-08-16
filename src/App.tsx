@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import {
-  FaHome,
-  FaUser,
   FaBriefcase,
   FaGraduationCap,
   FaProjectDiagram,
