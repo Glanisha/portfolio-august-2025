@@ -1,41 +1,41 @@
-  export const achievementsData = [
-   {
-  title: "2nd Place - Coherence Hackathon",
-  imageSrc: "/vcet_win.png",
-  description: "Built ScreenSmart, an AI-driven hiring assistant that automates resume screening, ranks candidates using NLP, machine learning, and predictive analytics, and minimizes bias in recruitment. The system runs SWOT analyses, generates candidate scores, and helps companies make smarter hiring decisions. Huge shoutout to Parth Doshi and Rishabh Tripathi for their valuable insights! Team: Romeiro Fernandes, Gavin Soares, Russel Daniel, and me. Hosted by: Vidyavardhini's College of Engineering and Technology.",
-  links: [
-    { 
-      name: "Devfolio", 
-      url: "https://lnkd.in/e54iDjt3", 
-      type: "live" 
-    }, 
-    { 
-      name: "Linkedin", 
-      url: "https://lnkd.in/e54iDjt3", 
-      type: "live" 
-    },
-    { 
-      name: "Github", 
-      url: "https://lnkd.in/e54iDjt3", 
-      type: "live" 
-    }
-  ]
-},
+export const achievementsData = [
+  {
+    title: "2nd Place - Coherence Hackathon",
+    imageSrc: "/vcet_win.png",
+    description:
+      "Built ScreenSmart, an AI-driven hiring assistant that automates resume screening, ranks candidates using NLP, machine learning, and predictive analytics, and minimizes bias in recruitment. The system runs SWOT analyses, generates candidate scores, and helps companies make smarter hiring decisions. Huge shoutout to Parth Doshi and Rishabh Tripathi for their valuable insights! Team: Romeiro Fernandes, Gavin Soares, Russel Daniel, and me. Hosted by: Vidyavardhini's College of Engineering and Technology.",
+    links: [
+      {
+        name: "Devfolio",
+        url: "https://lnkd.in/e54iDjt3",
+        type: "live",
+      },
+      {
+        name: "Linkedin",
+        url: "https://lnkd.in/e54iDjt3",
+        type: "live",
+      },
+      {
+        name: "Github",
+        url: "https://lnkd.in/e54iDjt3",
+        type: "live",
+      },
+    ],
+  },
 
-    {
-      title: "Coding Competition Finalist",
-      description:
-        "Secured top 10 position in the International Competitive Programming Contest. Solved complex algorithmic problems under time constraints.",
-      links: [],
-    },
-     {
-      title: "Coding Competition Finalist",
-      description:
-        "Secured top 10 position in the International Competitive Programming Contest. Solved complex algorithmic problems under time constraints.",
-      links: [],
-    },
-  ];
-
+  {
+    title: "Coding Competition Finalist",
+    description:
+      "Secured top 10 position in the International Competitive Programming Contest. Solved complex algorithmic problems under time constraints.",
+    links: [],
+  },
+  {
+    title: "Coding Competition Finalist",
+    description:
+      "Secured top 10 position in the International Competitive Programming Contest. Solved complex algorithmic problems under time constraints.",
+    links: [],
+  },
+];
 
 export const aboutMeData = [
   {
@@ -58,118 +58,109 @@ export const aboutMeData = [
   },
 ];
 
+export // Sample data (keeping your existing data)
+const projectsData = [
+{
+  title: "InternGuide",
+  imageSrc: "/intern.png",
+  description: "A comprehensive internship showcase and tracking platform with TF-IDF-based mentor-mentee matching, role-based access control for students/faculty/admins, Firebase resume storage, and automated email notifications via Nodemailer. Features real-time internship progress tracking, SDG (Sustainable Development Goals) mapping, PO/PEO alignment tracking, management dashboard with institution-wide analytics, and admin panel for internship listing management.                                                       Built with: MERN Stack • Python • Firebase • Nodemailer • TF-IDF Algorithm",
+  links: [
+    { name: "GitHub", url: "https://github.com/Glanisha/InternGuide", type: "github" },
+    { name: "PPT", url: "https://drive.google.com/file/d/1FWGbLUsY5n8WkbrO7CjYR6BY0fAzm3MD/view", type: "external" },
+    { name: "Video Demo", url: "https://drive.google.com/file/d/1Z27QPewM5Ow9hwI_T0peg5mpyTXmA0T3/view", type: "external" },
+  ],
+}
+,
+  {
+    title: "Machine Learning Model",
+    imageSrc: "/api/placeholder/600/400",
+    description:
+      "Developed a machine learning model for sentiment analysis using Python and TensorFlow. Achieved 92% accuracy on test data. Implemented data preprocessing, model training, and deployment pipeline.",
+    links: [
+      {
+        name: "GitHub",
+        url: "https://github.com/YOUR_ML_REPO",
+        type: "github",
+      },
+      { name: "Research Paper", url: "#", type: "live" },
+    ],
+  },
+  {
+    title: "Mobile App Development",
+    imageSrc: "/api/placeholder/600/400",
+    description:
+      "Cross-platform mobile application using React Native. Features real-time chat, push notifications, and offline functionality. Published on both iOS and Android app stores.",
+    links: [
+      {
+        name: "GitHub",
+        url: "https://github.com/YOUR_MOBILE_REPO",
+        type: "github",
+      },
+      { name: "App Store", url: "#", type: "live" },
+    ],
+  },
+];
 
-export   // Sample data (keeping your existing data)
-  const projectsData = [
-    {
-      title: "E-Commerce Platform",
-      imageSrc: "/liza.jpg",
-      description:
-        "A full-stack e-commerce platform built with MERN stack. Features include user authentication, product catalog, shopping cart, payment integration, and admin dashboard. Implemented responsive design and optimized performance.",
-      links: [
-        { name: "GitHub", url: "https://github.com/YOUR_REPO", type: "github" },
-        { name: "Live Demo", url: "https://your-demo.com", type: "live" },
-      ],
-    },
-    {
-      title: "Machine Learning Model",
-      imageSrc: "/api/placeholder/600/400",
-      description:
-        "Developed a machine learning model for sentiment analysis using Python and TensorFlow. Achieved 92% accuracy on test data. Implemented data preprocessing, model training, and deployment pipeline.",
-      links: [
-        {
-          name: "GitHub",
-          url: "https://github.com/YOUR_ML_REPO",
-          type: "github",
-        },
-        { name: "Research Paper", url: "#", type: "live" },
-      ],
-    },
-    {
-      title: "Mobile App Development",
-      imageSrc: "/api/placeholder/600/400",
-      description:
-        "Cross-platform mobile application using React Native. Features real-time chat, push notifications, and offline functionality. Published on both iOS and Android app stores.",
-      links: [
-        {
-          name: "GitHub",
-          url: "https://github.com/YOUR_MOBILE_REPO",
-          type: "github",
-        },
-        { name: "App Store", url: "#", type: "live" },
-      ],
-    },
-  ];
+export const certificationsData = [
+  {
+    title: "AWS Solutions Architect",
+    imageSrc: "/api/placeholder/600/400",
+    description:
+      "Amazon Web Services Solutions Architect Associate certification. Comprehensive knowledge of AWS services, architecture best practices, and cloud deployment strategies.",
+    links: [
+      { name: "View Certificate", url: "#", type: "live" },
+      { name: "Verify", url: "#", type: "live" },
+    ],
+  },
+  {
+    title: "Google Machine Learning Engineer",
+    description:
+      "Google Cloud Professional Machine Learning Engineer certification. Expertise in designing, building, and productionizing ML models using Google Cloud Platform.",
+    links: [{ name: "Certificate", url: "#", type: "live" }],
+  },
+];
 
-
-
-  export 
-
-  const certificationsData = [
-    {
-      title: "AWS Solutions Architect",
-      imageSrc: "/api/placeholder/600/400",
-      description:
-        "Amazon Web Services Solutions Architect Associate certification. Comprehensive knowledge of AWS services, architecture best practices, and cloud deployment strategies.",
-      links: [
-        { name: "View Certificate", url: "#", type: "live" },
-        { name: "Verify", url: "#", type: "live" },
-      ],
-    },
-    {
-      title: "Google Machine Learning Engineer",
-      description:
-        "Google Cloud Professional Machine Learning Engineer certification. Expertise in designing, building, and productionizing ML models using Google Cloud Platform.",
-      links: [{ name: "Certificate", url: "#", type: "live" }],
-    },
-  ];
-
-
-  import {
+import {
   SiMongodb,
   SiExpress,
-  SiCplusplus,
   SiJavascript,
   SiTypescript,
+  SiFirebase,
+  SiPostgresql,
 } from "react-icons/si";
-import {
-  FaReact,
-  FaNodeJs,
-  FaPython,
-  FaDatabase,
-} from "react-icons/fa";
+import { FaReact, FaNodeJs, FaPython, FaJava } from "react-icons/fa";
 
+export const techStack = [
+  // MERN
+  { name: "MongoDB", icon: SiMongodb, color: "#4DB33D" },
+  { name: "Express", icon: SiExpress, color: "#000000" },
+  { name: "React", icon: FaReact, color: "#61DAFB" },
+  { name: "Node.js", icon: FaNodeJs, color: "#339933" },
 
-  export   const techStack = [
-    { name: "React", icon: FaReact, color: "#61DAFB" },
-    { name: "Node.js", icon: FaNodeJs, color: "#339933" },
-    { name: "MongoDB", icon: SiMongodb, color: "#4DB33D" },
-    { name: "Express", icon: SiExpress, color: "#000000" },
-    { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
-    { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
-    { name: "C++", icon: SiCplusplus, color: "#00599C" },
-    { name: "Python", icon: FaPython, color: "#3776AB" },
-    { name: "SQL", icon: FaDatabase, color: "#003B57" },
-      { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
-    { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
-    { name: "C++", icon: SiCplusplus, color: "#00599C" },
-    { name: "Python", icon: FaPython, color: "#3776AB" },
-    { name: "SQL", icon: FaDatabase, color: "#003B57" },
-  ];
+  // Database
+  { name: "PostgreSQL", icon: SiPostgresql, color: "#336791" },
 
-  export 
+  // Languages
+  { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
+  { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
+  { name: "Python", icon: FaPython, color: "#3776AB" },
+  { name: "Java", icon: FaJava, color: "#007396" },
 
-  const experienceData = [
-    {
-      title: "Software Development Intern",
-      description:
-        "3-month internship at Tech Company ABC. Worked on full-stack development using MERN stack. Contributed to product features used by 10,000+ users. Collaborated with senior developers and gained experience in agile methodology.",
-      links: [
-        {
-          name: "LinkedIn",
-          url: "https://linkedin.com/in/YOUR_PROFILE",
-          type: "linkedin",
-        },
-      ],
-    },
-  ];
+  // Cloud / Backend
+  { name: "Firebase", icon: SiFirebase, color: "#FFCA28" },
+];
+
+export const experienceData = [
+  {
+    title: "Software Development Intern",
+    description:
+      "3-month internship at Tech Company ABC. Worked on full-stack development using MERN stack. Contributed to product features used by 10,000+ users. Collaborated with senior developers and gained experience in agile methodology.",
+    links: [
+      {
+        name: "LinkedIn",
+        url: "https://linkedin.com/in/YOUR_PROFILE",
+        type: "linkedin",
+      },
+    ],
+  },
+];

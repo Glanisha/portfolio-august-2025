@@ -14,7 +14,9 @@ import {
   FaTimes,
   FaExternalLinkAlt,
 } from "react-icons/fa";
-import { achievementsData, aboutMeData, projectsData, certificationsData, techStack, experienceData } from "./data";
+import { achievementsData, projectsData, techStack, experienceData } from "./data";
+import CertificationsModal from "./components/CertificationsModal";
+import AboutMe from "./components/Aboutme";
 
 interface ModalData {
   title: string;
@@ -185,10 +187,8 @@ const App: React.FC = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [currentModalIndex, setCurrentModalIndex] = useState(0);
   const [modalItems, setModalItems] = useState<ModalData[]>([]);
-
-
-
-
+  const [certificationsModalOpen, setCertificationsModalOpen] = useState(false);
+  const [aboutMeOpen, setAboutMeOpen] = useState(false);
 
   const openModal = (items: ModalData[]) => {
     setModalItems(items);
@@ -296,69 +296,68 @@ const App: React.FC = () => {
           className="order-2 md:col-span-4 md:row-span-1 bg-teal-600 border border-teal-500 rounded-2xl p-4 md:p-6 flex items-center justify-center hover:bg-teal-700 transition-colors cursor-pointer"
         >
           <FaDownload className="w-5 h-5 text-white mr-3 flex-shrink-0" />
-          <span className="text-white font-medium text-base md:text-lg">
+          <span className="text-white font-medium text-base md:text-lg text-center">
             Download CV
           </span>
         </div>
 
-        {/* 3. About Me */}
-        
+        {/* 3. About Me - Updated to use new component */}
+        <div
+          onClick={() => setAboutMeOpen(true)}
+          className="order-3 md:col-span-4 md:row-span-1 bg-[#161b22] border border-[#30363d] rounded-2xl p-4 md:p-6 flex items-center justify-center cursor-pointer hover:bg-[#21262d] transition-colors"
+        >
+          <FaInfoCircle className="w-6 h-6 text-white mr-3 flex-shrink-0" />
+          <span className="text-white font-medium text-base md:text-lg text-center">
+            About Me
+          </span>
+        </div>
 
-{/* 4. Tech Stack - Fixed responsive grid with scroll */}
-<div className="order-4 md:col-span-4 md:row-span-2 bg-[#161b22] border border-[#30363d] rounded-2xl p-4 md:p-6 hover:bg-[#1c2128] transition-colors overflow-hidden relative">
-  <h3 className="text-white font-bold mb-4 md:mb-6 text-base md:text-lg tracking-wide">
-    TECH STACK
-  </h3>
+        {/* 4. Tech Stack */}
+        <div className="order-4 md:col-span-4 md:row-span-2 bg-[#161b22] border border-[#30363d] rounded-2xl p-4 md:p-6 hover:bg-[#1c2128] transition-colors overflow-hidden relative">
+          <h3 className="text-white font-bold mb-4 md:mb-6 text-base md:text-lg tracking-wide">
+            TECH STACK
+          </h3>
 
-  {/* Mobile → 1 row scroll | Desktop → 2 rows scroll */}
-  <div className="overflow-x-auto scrollbar-hide relative">
-    <div
-      className="
-        flex gap-3 md:gap-4
-        md:grid md:auto-cols-max md:grid-rows-2 md:grid-flow-col
-      "
-    >
-      {techStack.map((tech, index) => {
-        const IconComponent = tech.icon;
-        return (
-          <div
-            key={index}
-            className="group relative bg-[#21262d] p-3 md:p-4 rounded-xl hover:bg-[#30363d] transition-colors cursor-pointer flex flex-col items-center justify-center gap-2 min-h-[70px] md:min-h-[80px] w-[90px] md:w-[110px]"
-          >
-            <IconComponent
-              className="w-6 h-6 md:w-8 md:h-8 text-white flex-shrink-0"
-              style={{ color: tech.color }}
-            />
-            <span className="text-xs text-gray-300 text-center leading-tight">
-              {tech.name}
-            </span>
+          <div className="overflow-x-auto scrollbar-hide relative">
+            <div className="flex gap-3 md:gap-4 md:grid md:auto-cols-max md:grid-rows-2 md:grid-flow-col">
+              {techStack.map((tech, index) => {
+                const IconComponent = tech.icon;
+                return (
+                  <div
+                    key={index}
+                    className="group relative bg-[#21262d] p-3 md:p-4 rounded-xl hover:bg-[#30363d] transition-colors cursor-pointer flex flex-col items-center justify-center gap-2 min-h-[70px] md:min-h-[80px] w-[90px] md:w-[110px]"
+                  >
+                    <IconComponent
+                      className="w-6 h-6 md:w-8 md:h-8 text-white flex-shrink-0"
+                      style={{ color: tech.color }}
+                    />
+                    <span className="text-xs text-gray-300 text-center leading-tight">
+                      {tech.name}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
           </div>
-        );
-      })}
-    </div>
-  </div>
 
-  {/* subtle fade on right to hint scroll */}
-  <div className="pointer-events-none absolute top-0 right-0 h-full w-8 bg-gradient-to-l from-[#161b22] to-transparent"></div>
+          <div className="pointer-events-none absolute top-0 right-0 h-full w-8 bg-gradient-to-l from-[#161b22] to-transparent"></div>
 
-  {/* dots indicator (always visible, not clipped) */}
-  <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
-    {[...Array(5)].map((_, i) => (
-      <div
-        key={i}
-        className="w-1.5 h-1.5 rounded-full bg-gray-500 opacity-50"
-      ></div>
-    ))}
-  </div>
-</div>
-
+          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
+            {[...Array(5)].map((_, i) => (
+              <div
+                key={i}
+                className="w-1.5 h-1.5 rounded-full bg-gray-500 opacity-50"
+              ></div>
+            ))}
+          </div>
+        </div>
 
         {/* 5. Experience */}
         <div
           onClick={() => openModal(experienceData)}
-          className="order-5 md:col-span-4 md:row-span-1 bg-[#161b22] border border-[#30363d] rounded-2xl p-4 md:p-6 flex items-center justify-center cursor-pointer hover:bg-[#21262d] transition-colors"
+          className="order-5 md:col-span-4 md:row-span-1 bg-[#161b22] border border-[#30363d] rounded-2xl p-4 md:p-6 flex flex-col items-center justify-center cursor-pointer hover:bg-[#21262d] transition-colors text-center"
         >
-          <FaBriefcase className="w-6 h-6 text-white mr-3 flex-shrink-0" />
+          <FaBriefcase className="w-6 h-6 text-white mb-2 flex-shrink-0" />
           <span className="text-white font-medium text-base md:text-lg">
             Experience
           </span>
@@ -367,31 +366,21 @@ const App: React.FC = () => {
         {/* 6. Achievements */}
         <div
           onClick={() => openModal(achievementsData)}
-          className="order-6 md:col-span-4 md:row-span-1 bg-[#161b22] border border-[#30363d] rounded-2xl p-4 md:p-6 flex items-center justify-center cursor-pointer hover:bg-[#21262d] transition-colors"
+          className="order-6 md:col-span-4 md:row-span-1 bg-[#161b22] border border-[#30363d] rounded-2xl p-4 md:p-6 flex flex-col items-center justify-center cursor-pointer hover:bg-[#21262d] transition-colors text-center"
         >
-          <FaTrophy className="w-6 h-6 text-white mr-3 flex-shrink-0" />
+          <FaTrophy className="w-6 h-6 text-white mb-2 flex-shrink-0" />
           <span className="text-white font-medium text-base md:text-lg text-center">
             Achievements & Co-Curricular
           </span>
         </div>
 
-        {/* 7. Certifications */}
-
+        {/* 7. Certifications - Updated to use imported modal */}
         <div
-          onClick={() => openModal(aboutMeData)}
-          className="order-3 md:col-span-4 md:row-span-1 bg-[#161b22] border border-[#30363d] rounded-2xl p-4 md:p-6 flex items-center justify-center cursor-pointer hover:bg-[#21262d] transition-colors"
+          onClick={() => setCertificationsModalOpen(true)}
+          className="order-7 md:col-span-4 md:row-span-1 bg-[#161b22] border border-[#30363d] rounded-2xl p-4 md:p-6 flex flex-col items-center justify-center cursor-pointer hover:bg-[#21262d] transition-colors text-center"
         >
-          <FaInfoCircle className="w-6 h-6 text-white mr-3 flex-shrink-0" />
-          <span className="text-white font-medium text-base md:text-lg">
-            About Me
-          </span>
-        </div>
-        <div
-          onClick={() => openModal(certificationsData)}
-          className="order-7 md:col-span-4 md:row-span-1 bg-[#161b22] border border-[#30363d] rounded-2xl p-4 md:p-6 flex items-center justify-center cursor-pointer hover:bg-[#21262d] transition-colors"
-        >
-          <FaGraduationCap className="w-6 h-6 text-white mr-3 flex-shrink-0" />
-          <span className="text-white font-medium text-base md:text-lg">
+          <FaGraduationCap className="w-6 h-6 text-white mb-2 flex-shrink-0" />
+          <span className="text-white font-medium text-base md:text-lg text-center">
             Certifications
           </span>
         </div>
@@ -399,10 +388,10 @@ const App: React.FC = () => {
         {/* 8. Projects */}
         <div
           onClick={() => openModal(projectsData)}
-          className="order-8 md:col-span-4 md:row-span-1 bg-[#161b22] border border-[#30363d] rounded-2xl p-4 md:p-6 flex items-center justify-center cursor-pointer hover:bg-[#21262d] transition-colors"
+          className="order-8 md:col-span-4 md:row-span-1 bg-[#161b22] border border-[#30363d] rounded-2xl p-4 md:p-6 flex flex-col items-center justify-center cursor-pointer hover:bg-[#21262d] transition-colors text-center"
         >
-          <FaProjectDiagram className="w-6 h-6 text-white mr-3 flex-shrink-0" />
-          <span className="text-white font-medium text-base md:text-lg">
+          <FaProjectDiagram className="w-6 h-6 text-white mb-2 flex-shrink-0" />
+          <span className="text-white font-medium text-base md:text-lg text-center">
             Projects
           </span>
         </div>
@@ -416,6 +405,16 @@ const App: React.FC = () => {
           onIndexChange={handleModalIndexChange}
         />
       )}
+
+      <CertificationsModal
+        isOpen={certificationsModalOpen}
+        onClose={() => setCertificationsModalOpen(false)}
+      />
+
+      <AboutMe
+        isOpen={aboutMeOpen}
+        onClose={() => setAboutMeOpen(false)}
+      />
     </div>
   );
 };
