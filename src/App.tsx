@@ -16,7 +16,7 @@ import {
 } from "react-icons/fa";
 import { achievementsData, projectsData, techStack, experienceData } from "./data";
 import CertificationsModal from "./components/CertificationsModal";
-import Aboutme from "./components/Aboutme";
+
 
 interface ModalData {
   title: string;
@@ -188,7 +188,7 @@ const App: React.FC = () => {
   const [currentModalIndex, setCurrentModalIndex] = useState(0);
   const [modalItems, setModalItems] = useState<ModalData[]>([]);
   const [certificationsModalOpen, setCertificationsModalOpen] = useState(false);
-  const [aboutMeOpen, setAboutMeOpen] = useState(false);
+  
 
   const openModal = (items: ModalData[]) => {
     setModalItems(items);
@@ -303,7 +303,7 @@ const App: React.FC = () => {
 
         {/* 3. About Me - Updated to use new component */}
         <div
-          onClick={() => setAboutMeOpen(true)}
+    
           className="order-3 md:col-span-4 md:row-span-1 bg-[#161b22] border border-[#30363d] rounded-2xl p-4 md:p-6 flex items-center justify-center cursor-pointer hover:bg-[#21262d] transition-colors"
         >
           <FaInfoCircle className="w-6 h-6 text-white mr-3 flex-shrink-0" />
@@ -411,10 +411,7 @@ const App: React.FC = () => {
         onClose={() => setCertificationsModalOpen(false)}
       />
 
-      <Aboutme
-        isOpen={aboutMeOpen}
-        onClose={() => setAboutMeOpen(false)}
-      />
+      
     </div>
   );
 };
