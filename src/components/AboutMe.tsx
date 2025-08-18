@@ -13,7 +13,7 @@ interface AboutMeProps {
   onClose: () => void;
 }
 
-const AboutMe: React.FC<AboutMeProps> = ({ isOpen, onClose }) => {
+const Aboutme: React.FC<AboutMeProps> = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
@@ -125,4 +125,4 @@ const AboutMe: React.FC<AboutMeProps> = ({ isOpen, onClose }) => {
   );
 };
 
-export default AboutMe;
+export default Aboutme;

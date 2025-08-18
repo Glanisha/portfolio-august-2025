@@ -16,7 +16,7 @@ import {
 } from "react-icons/fa";
 import { achievementsData, projectsData, techStack, experienceData } from "./data";
 import CertificationsModal from "./components/CertificationsModal";
-import AboutMe from "./components/Aboutme";
+import Aboutme from "./components/Aboutme";
 
 interface ModalData {
   title: string;
@@ -411,7 +411,7 @@ const App: React.FC = () => {
         onClose={() => setCertificationsModalOpen(false)}
       />
 
-      <AboutMe
+      <Aboutme
         isOpen={aboutMeOpen}
         onClose={() => setAboutMeOpen(false)}
       />
