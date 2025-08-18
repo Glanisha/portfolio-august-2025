@@ -16,6 +16,7 @@ import {
 } from "react-icons/fa";
 import { achievementsData, projectsData, techStack, experienceData } from "./data";
 import CertificationsModal from "./components/CertificationsModal";
+import AboutMe from "./components/Aboutme";
 
 
 interface ModalData {
@@ -25,12 +26,14 @@ interface ModalData {
   links?: { name: string; url: string; type: string }[];
 }
 
+
 interface ModalProps {
   items: ModalData[];
   currentIndex: number;
   onClose: () => void;
   onIndexChange: (index: number) => void;
 }
+
 
 const Modal: React.FC<ModalProps> = ({
   items,
@@ -39,6 +42,7 @@ const Modal: React.FC<ModalProps> = ({
   onIndexChange,
 }) => {
   if (!items || items.length === 0) return null;
+
 
   const getLinkIcon = (type: string) => {
     switch (type.toLowerCase()) {
@@ -54,16 +58,19 @@ const Modal: React.FC<ModalProps> = ({
     }
   };
 
+
   const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
     const container = e.currentTarget;
     const scrollLeft = container.scrollLeft;
     const containerWidth = container.clientWidth;
     const newIndex = Math.round(scrollLeft / containerWidth);
 
+
     if (newIndex !== currentIndex && newIndex >= 0 && newIndex < items.length) {
       onIndexChange(newIndex);
     }
   };
+
 
   React.useEffect(() => {
     const container = document.getElementById("modal-scroll-container");
@@ -72,12 +79,14 @@ const Modal: React.FC<ModalProps> = ({
     }
   }, [currentIndex]);
 
+
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50 p-4">
       <div
         onClick={onClose}
         className="absolute inset-0 bg-black/20 backdrop-blur-md cursor-pointer"
       />
+
 
       <div className="relative bg-[#161b22]/95 backdrop-blur-xl border border-[#30363d] rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-hidden shadow-2xl">
         <button
@@ -86,6 +95,7 @@ const Modal: React.FC<ModalProps> = ({
         >
           <FaTimes className="w-5 h-5" />
         </button>
+
 
         <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20">
           <div className="flex gap-2">
@@ -100,6 +110,7 @@ const Modal: React.FC<ModalProps> = ({
             ))}
           </div>
         </div>
+
 
         <div
           id="modal-scroll-container"
@@ -122,6 +133,7 @@ const Modal: React.FC<ModalProps> = ({
                 </div>
               )}
 
+
               <div
                 className={`p-8 flex flex-col ${
                   item.imageSrc ? "lg:w-1/2" : "w-full"
@@ -136,9 +148,11 @@ const Modal: React.FC<ModalProps> = ({
                   </span>
                 </div>
 
+
                 <p className="text-gray-300 leading-relaxed mb-8 flex-grow text-base">
                   {item.description}
                 </p>
+
 
                 {item.links && item.links.length > 0 && (
                   <div className="mt-auto">
@@ -170,6 +184,7 @@ const Modal: React.FC<ModalProps> = ({
         </div>
       </div>
 
+
       <style>{`
         .scrollbar-hide {
           -ms-overflow-style: none;
@@ -183,12 +198,15 @@ const Modal: React.FC<ModalProps> = ({
   );
 };
 
+
 const App: React.FC = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [currentModalIndex, setCurrentModalIndex] = useState(0);
   const [modalItems, setModalItems] = useState<ModalData[]>([]);
   const [certificationsModalOpen, setCertificationsModalOpen] = useState(false);
+  const [aboutMeModalOpen, setAboutMeModalOpen] = useState(false);
   
+
 
   const openModal = (items: ModalData[]) => {
     setModalItems(items);
@@ -196,13 +214,16 @@ const App: React.FC = () => {
     setModalOpen(true);
   };
 
+
   const closeModal = () => {
     setModalOpen(false);
   };
 
+
   const handleModalIndexChange = (index: number) => {
     setCurrentModalIndex(index);
   };
+
 
   return (
     <div className="min-h-screen bg-[#0d1117] p-4 md:p-8 lg:p-10 md:flex md:items-center md:justify-center">
@@ -220,11 +241,13 @@ const App: React.FC = () => {
               Fr. Conceicao Rodrigues College of Engineering
             </h5>
 
+
             <div className="flex items-center text-gray-400 text-sm mb-6">
               <FaMapMarkerAlt className="w-4 h-4 mr-2 text-white flex-shrink-0" />
               Mumbai, India
             </div>
           </div>
+
 
           <div className="px-6 pb-2">
             <div className="bg-[#0d1117] rounded-2xl overflow-hidden mb-4">
@@ -234,6 +257,7 @@ const App: React.FC = () => {
                 className="w-full h-48 md:h-64 object-cover"
               />
             </div>
+
 
             {/* Fixed social icons grid */}
             <div className="grid grid-cols-5 gap-3">
@@ -254,12 +278,14 @@ const App: React.FC = () => {
                 <FaLinkedin className="w-5 h-5 text-white" />
               </a>
 
+
               <a
                 href="mailto:lizacastelinoo@gmail.com"
                 className="bg-green-600 rounded-lg hover:bg-green-700 transition-colors cursor-pointer flex items-center justify-center w-full aspect-square"
               >
                 <FaEnvelope className="w-5 h-5 text-white" />
               </a>
+
 
               <a
                 href="https://devfolio.co/@glanisha"
@@ -290,6 +316,7 @@ const App: React.FC = () => {
           </div>
         </div>
 
+
         {/* 2. Download CV */}
         <div
           onClick={() => window.open("/cv.pdf", "_blank")}
@@ -301,9 +328,10 @@ const App: React.FC = () => {
           </span>
         </div>
 
-        {/* 3. About Me - Updated to use new component */}
+
+        {/* 3. About Me - Updated with onClick handler */}
         <div
-    
+          onClick={() => setAboutMeModalOpen(true)}
           className="order-3 md:col-span-4 md:row-span-1 bg-[#161b22] border border-[#30363d] rounded-2xl p-4 md:p-6 flex items-center justify-center cursor-pointer hover:bg-[#21262d] transition-colors"
         >
           <FaInfoCircle className="w-6 h-6 text-white mr-3 flex-shrink-0" />
@@ -312,11 +340,13 @@ const App: React.FC = () => {
           </span>
         </div>
 
+
         {/* 4. Tech Stack */}
         <div className="order-4 md:col-span-4 md:row-span-2 bg-[#161b22] border border-[#30363d] rounded-2xl p-4 md:p-6 hover:bg-[#1c2128] transition-colors overflow-hidden relative">
           <h3 className="text-white font-bold mb-4 md:mb-6 text-base md:text-lg tracking-wide">
             TECH STACK
           </h3>
+
 
           <div className="overflow-x-auto scrollbar-hide relative">
             <div className="flex gap-3 md:gap-4 md:grid md:auto-cols-max md:grid-rows-2 md:grid-flow-col">
@@ -340,7 +370,9 @@ const App: React.FC = () => {
             </div>
           </div>
 
+
           <div className="pointer-events-none absolute top-0 right-0 h-full w-8 bg-gradient-to-l from-[#161b22] to-transparent"></div>
+
 
           <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
             {[...Array(5)].map((_, i) => (
@@ -351,6 +383,7 @@ const App: React.FC = () => {
             ))}
           </div>
         </div>
+
 
         {/* 5. Experience */}
         <div
@@ -363,6 +396,7 @@ const App: React.FC = () => {
           </span>
         </div>
 
+
         {/* 6. Achievements */}
         <div
           onClick={() => openModal(achievementsData)}
@@ -374,6 +408,7 @@ const App: React.FC = () => {
           </span>
         </div>
 
+
         {/* 7. Certifications - Updated to use imported modal */}
         <div
           onClick={() => setCertificationsModalOpen(true)}
@@ -384,6 +419,7 @@ const App: React.FC = () => {
             Certifications
           </span>
         </div>
+
 
         {/* 8. Projects */}
         <div
@@ -397,6 +433,7 @@ const App: React.FC = () => {
         </div>
       </div>
 
+
       {modalOpen && (
         <Modal
           items={modalItems}
@@ -406,14 +443,23 @@ const App: React.FC = () => {
         />
       )}
 
+
       <CertificationsModal
         isOpen={certificationsModalOpen}
         onClose={() => setCertificationsModalOpen(false)}
       />
 
+
+      <AboutMe
+        isOpen={aboutMeModalOpen}
+        onClose={() => setAboutMeModalOpen(false)}
+      />
+
+
       
     </div>
   );
 };
+
 
 export default App;
