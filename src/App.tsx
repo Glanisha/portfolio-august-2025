@@ -18,10 +18,6 @@ import { achievementsData, projectsData, techStack, experienceData } from "./dat
 import CertificationsModal from "./components/CertificationsModal";
 import AboutMe from "./components/Aboutme";
 
-
-
-
-
 interface ModalData {
   title: string;
   imageSrc?: string;
