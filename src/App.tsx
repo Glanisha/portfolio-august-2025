@@ -14,8 +14,9 @@ import {
   FaTimes,
   FaExternalLinkAlt,
 } from "react-icons/fa";
-import { achievementsData, projectsData, techStack, experienceData } from "./data";
+import { achievementsData, techStack, experienceData } from "./data";
 import CertificationsModal from "./components/CertificationsModal";
+import ProjectsModal from "./components/ProjectsModal";
 import { MeAbout } from "./components/MeAbout"; 
 
 interface ModalData {
@@ -189,6 +190,7 @@ const App: React.FC = () => {
   const [modalItems, setModalItems] = useState<ModalData[]>([]);
   const [aboutOpen, setAboutOpen] = useState(false);
   const [certificationsModalOpen, setCertificationsModalOpen] = useState(false);
+  const [projectsModalOpen, setProjectsModalOpen] = useState(false);
 
   const openModal = (items: ModalData[]) => {
     setModalItems(items);
@@ -301,7 +303,7 @@ const App: React.FC = () => {
           </span>
         </div>
 
-        {/* 3. About Me - Fixed */}
+        {/* 3. About Me */}
         <div
           onClick={() => setAboutOpen(true)}
           className="order-3 md:col-span-4 md:row-span-1 bg-[#161b22] border border-[#30363d] rounded-2xl p-4 md:p-6 flex items-center justify-center cursor-pointer hover:bg-[#21262d] transition-colors"
@@ -387,7 +389,7 @@ const App: React.FC = () => {
 
         {/* 8. Projects */}
         <div
-          onClick={() => openModal(projectsData)}
+          onClick={() => setProjectsModalOpen(true)}
           className="order-8 md:col-span-4 md:row-span-1 bg-[#161b22] border border-[#30363d] rounded-2xl p-4 md:p-6 flex flex-col items-center justify-center cursor-pointer hover:bg-[#21262d] transition-colors text-center"
         >
           <FaProjectDiagram className="w-6 h-6 text-white mb-2 flex-shrink-0" />
@@ -397,7 +399,6 @@ const App: React.FC = () => {
         </div>
       </div>
 
-      {/* Modals - Moved to the end and fixed */}
       {modalOpen && (
         <Modal
           items={modalItems}
@@ -410,6 +411,11 @@ const App: React.FC = () => {
       <CertificationsModal
         isOpen={certificationsModalOpen}
         onClose={() => setCertificationsModalOpen(false)}
+      />
+
+      <ProjectsModal
+        isOpen={projectsModalOpen}
+        onClose={() => setProjectsModalOpen(false)}
       />
 
       <MeAbout isOpen={aboutOpen} onClose={() => setAboutOpen(false)} />

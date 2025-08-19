@@ -38,7 +38,7 @@ export const MeAbout: React.FC<MeAboutProps> = ({ isOpen, onClose }) => {
             <div className="flex items-start gap-3 bg-[#1c2128] p-4 rounded-xl border border-[#30363d]">
               <FaLaptopCode className="w-6 h-6 text-blue-400 mt-1" />
               <div>
-                <h3 className="text-white font-semibold">Frontend Experience</h3>
+                <h3 className="text-white font-semibold"> Experience</h3>
                 <p className="text-gray-400 text-sm">
                   Completed two frontend development internships, gaining hands-on experience 
                   in building scalable, user-friendly web applications.
@@ -62,7 +62,7 @@ export const MeAbout: React.FC<MeAboutProps> = ({ isOpen, onClose }) => {
               <div>
                 <h3 className="text-white font-semibold">Technical Skills</h3>
                 <p className="text-gray-400 text-sm">
-                  Skilled in full-stack development (MERN) with growing expertise in AI/ML. 
+                  Skilled in full-stack development with growing expertise in AI/ML. 
                   Adaptable and quick to learn new technologies as projects demand.
                 </p>
               </div>
