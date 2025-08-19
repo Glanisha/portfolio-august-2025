@@ -19,16 +19,17 @@ import {
   SiJavascript,
   // SiTypescript,
   SiPython,
-  // SiTailwindcss,
+  SiTailwindcss,
   // SiNextdotjs,
   // SiFlutter,
   // SiDart,
   // SiPostgresql,
   // SiDocker,
-  // SiTensorflow,
+  SiTensorflow,
   // SiOpencv,
   // SiBootstrap,
   // SiSocketdotio,
+  SiGoogleadmob
 } from "react-icons/si";
 
 interface TechStack {
@@ -40,7 +41,7 @@ interface TechStack {
 interface ProjectLink {
   name: string;
   url: string;
-  type: "github" | "live" | "video" | "devfolio" | "docs" | "presentation";
+  type: "github" | "live" | "video" | "devfolio" | "docs" | "presentation" | "social";
 }
 
 interface Project {
@@ -58,7 +59,6 @@ interface ProjectsModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
-
 const projectsData: Project[] = [
   {
     id: 1,
@@ -87,78 +87,64 @@ const projectsData: Project[] = [
     category: "Education Technology",
     status: "completed"
   },
-  // {
-  //   id: 2,
-  //   title: "Mumbai Mobility App",
-  //   description: "A mobile application focused on promoting sustainable transportation in Mumbai. Features include walkability analysis, route optimization for pedestrians, public transport integration, community-driven infrastructure reporting, and carbon footprint tracking. Uses machine learning for traffic pattern analysis and route suggestions.",
-  //   images: [
-  //     "/project3-1.png",
-  //     "/project3-2.png"
-  //   ],
-  //   techStack: [
-  //     { name: "Flutter", icon: SiFlutter, color: "#02569B" },
-  //     { name: "Dart", icon: SiDart, color: "#0175C2" },
-  //     { name: "Firebase", icon: SiFirebase, color: "#ffca28" },
-  //     { name: "Python", icon: SiPython, color: "#3776ab" },
-  //     { name: "TensorFlow", icon: SiTensorflow, color: "#ff6f00" }
-  //   ],
-  //   links: [
-  //     { name: "GitHub", url: "#", type: "github" },
-  //     { name: "Documentation", url: "#", type: "docs" },
-  //     { name: "Video Demo", url: "#", type: "video" }
-  //   ],
-  //   category: "Mobile Development",
-  //   status: "in-progress"
-  // },
-  // {
-  //   id: 3,
-  //   title: "Smart Healthcare Dashboard",
-  //   description: "An intelligent healthcare management system with patient monitoring, appointment scheduling, and medical record management. Features include real-time vital signs tracking, AI-powered symptom analysis, telemedicine integration, and predictive health analytics. Built for healthcare providers to streamline patient care.",
-  //   images: [
-  //     "/project4-1.png",
-  //     "/project4-2.png",
-  //     "/project4-3.png"
-  //   ],
-  //   techStack: [
-  //     { name: "React", icon: SiReact, color: "#61dafb" },
-  //     { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
-  //     { name: "PostgreSQL", icon: SiPostgresql, color: "#336791" },
-  //     { name: "Python", icon: SiPython, color: "#3776ab" },
-  //     { name: "Socket.io", icon: SiSocketdotio, color: "#010101" },
-  //     { name: "Docker", icon: SiDocker, color: "#2496ed" }
-  //   ],
-  //   links: [
-  //     { name: "GitHub", url: "#", type: "github" },
-  //     { name: "Live Demo", url: "#", type: "live" },
-  //     { name: "Presentation", url: "#", type: "presentation" }
-  //   ],
-  //   category: "Healthcare Technology",
-  //   status: "completed"
-  // },
-  // {
-  //   id: 4,
-  //   title: "AI Image Recognition System",
-  //   description: "A computer vision project for object detection and classification using deep learning. Features include real-time image processing, custom model training, batch processing capabilities, and REST API integration. Implemented using CNN architectures and optimized for production deployment.",
-  //   images: [
-  //     "/project5-1.png",
-  //     "/project5-2.png"
-  //   ],
-  //   techStack: [
-  //     { name: "Python", icon: SiPython, color: "#3776ab" },
-  //     { name: "TensorFlow", icon: SiTensorflow, color: "#ff6f00" },
-  //     { name: "OpenCV", icon: SiOpencv, color: "#5c3ee8" },
-  //     { name: "Flask", icon: SiPython, color: "#000000" },
-  //     { name: "Docker", icon: SiDocker, color: "#2496ed" }
-  //   ],
-  //   links: [
-  //     { name: "GitHub", url: "#", type: "github" },
-  //     { name: "Documentation", url: "#", type: "docs" },
-  //     { name: "Video Demo", url: "#", type: "video" }
-  //   ],
-  //   category: "Machine Learning",
-  //   status: "completed"
-  // }
+  {
+    id: 2,
+    title: "ScreenSmart - AI-Powered Resume Screener",
+    description: "An AI-powered resume screening system developed at Coherence-25 hackathon by Team SOS. This system automates candidate ranking based on job descriptions, skills, experience, and bias-free selection. Utilizes NLP for resume data extraction, XGBoost ML model for hirability scoring, SWOT analysis, and a web dashboard for HRs with features like candidate ranking, AI-driven insights, candidate comparison, and automated notifications.",
+    images: [
+      "/ss1.png",
+      "/ss2.png",
+      "/ss3.png",
+      "/ss4.png"
+    ],
+    techStack: [
+      { name: "Python", icon: SiPython, color: "#3776ab" },
+      { name: "XGBoost", icon: SiPython, color: "#ff6600" }, // Using Python icon as placeholder
+      { name: "Scrapy", icon: SiPython, color: "#60a839" }, // Using Python icon as placeholder
+      { name: "NLP", icon: SiPython, color: "#4285f4" }, // Using Python icon as placeholder
+      { name: "Gemini AI", icon: SiGoogleadmob, color: "#4285f4" },
+      { name: "Machine Learning", icon: SiTensorflow, color: "#ff6f00" },
+      { name: "React", icon: SiReact, color: "#61dafb" }
+    ],
+    links: [
+      { name: "Devfolio", url: "https://devfolio.co/projects/screensmart-b0a3", type: "live" },
+      { name: "LinkedIn", url: "https://www.linkedin.com/posts/liza-glanisha-castelino-558802302_hackathonjourney-ai-machinelearning-activity-7313562219210825728-KnKS?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE1ckJQBEDoyI4PpsLs7SPnpDxTqbFgh7ys", type: "social" },
+      { name: "GitHub", url: "https://github.com/Glanisha/ScreenSmart", type: "github" }
+    ],
+    category: "AI/ML & Recruitment Technology",
+    status: "completed"
+  },
+  {
+    id: 3,
+    title: "InfluenceIQ - AI-Powered Influencer Analytics Platform",
+    description: "InfluenceIQ is a data-driven platform that helps businesses find the perfect influencers for their brand. It leverages AI and machine learning to provide deep insights into influencer credibility, engagement, and alignment with brands, using realistic historical data, predictive analytics, and advanced metrics for smarter partnerships. Features include AI-powered matching, TF-IDF content analysis, linear regression for trend prediction, and custom AI-generated reports using LLM models.",
+    images: [
+      "/aura1.png",
+      "/aura2.png",
+      "/aura3.png",
+      "/aura4.png"
+    ],
+    techStack: [
+      { name: "React", icon: SiReact, color: "#61dafb" },
+      { name: "Tailwind CSS", icon: SiTailwindcss, color: "#38b2ac" },
+      { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
+      { name: "Express", icon: SiExpress, color: "#ffffff" },
+      { name: "MongoDB", icon: SiMongodb, color: "#47a248" },
+      { name: "Python", icon: SiPython, color: "#3776ab" },
+      { name: "Machine Learning", icon: SiTensorflow, color: "#ff6f00" },
+      { name: "Gemini AI", icon: SiGoogleadmob, color: "#4285f4" }
+    ],
+    links: [
+      { name: "Deployed Site", url: "https://influenceiq-nine.vercel.app/", type: "live" },
+      { name: "Devfolio", url: "https://devfolio.co/projects/influenceiq-b938", type: "live" },
+      { name: "LinkedIn", url: "https://www.linkedin.com/posts/liza-glanisha-castelino-558802302_hackathonjourney-ai-machinelearning-activity-7313562219210825728-KnKS?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE1ckJQBEDoyI4PpsLs7SPnpDxTqbFgh7ys", type: "live" },
+      { name: "GitHub", url: "https://github.com/Glanisha/InfluenceIQ", type: "github" }
+    ],
+    category: "AI and Influencer Analytics",
+    status: "completed"
+  }
 ];
+
 
 const ProjectsModal: React.FC<ProjectsModalProps> = ({ isOpen, onClose }) => {
   const [selectedProject, setSelectedProject] = useState<number>(0);
