@@ -3,8 +3,6 @@ import {
   FaTimes,
   FaGraduationCap,
   FaDatabase,
-  FaCloud,
-  FaCode,
   FaGlobe,
   FaLayerGroup,
   FaPalette
