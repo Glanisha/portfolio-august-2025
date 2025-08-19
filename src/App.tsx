@@ -315,7 +315,7 @@ const App: React.FC = () => {
         {/* 4. Tech Stack */}
         <div className="order-4 md:col-span-4 md:row-span-2 bg-[#161b22] border border-[#30363d] rounded-2xl p-4 md:p-6 hover:bg-[#1c2128] transition-colors overflow-hidden relative">
           <h3 className="text-white font-bold mb-4 md:mb-6 text-base md:text-lg tracking-wide">
-            TECH STACK
+            TECH STACK AND TOOLS
           </h3>
 
           <div className="overflow-x-auto scrollbar-hide relative">

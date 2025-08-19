@@ -1,5 +1,33 @@
 export const achievementsData = [
   {
+    title: "1st Place - Auraflix Hackathon",
+    imageSrc: "/aura.png",
+    description:
+      "Built InfluenceIQ, a data-driven influencer marketing platform designed to ensure authenticity and real impact. Featuring LLM-powered influencer matching, a Credibility Score, and trend forecasting (predicting trends up to 9 months in advance!), we aimed to tackle the rising challenge of fake influence. Since direct Instagram data scraping is restricted, we designed a custom API using Kaggle datasets to simulate real-time insights.Organized by: Auraverse.",
+    links: [
+      {
+        name: "Deployed Site",
+        url: "https://influenceiq-nine.vercel.app/",
+        type: "live",
+      },
+      {
+        name: "Devfolio",
+        url: "https://devfolio.co/projects/influenceiq-b938",
+        type: "live",
+      },
+      {
+        name: "LinkedIn",
+        url: "https://www.linkedin.com/posts/liza-glanisha-castelino-558802302_hackathonjourney-ai-machinelearning-activity-7313562219210825728-KnKS?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE1ckJQBEDoyI4PpsLs7SPnpDxTqbFgh7ys",
+        type: "live",
+      },
+      {
+        name: "GitHub",
+        url: "https://github.com/Glanisha/InfluenceIQ",
+        type: "live",
+      },
+    ],
+  },
+  {
     title: "2nd Place - Coherence Hackathon",
     imageSrc: "/vcet_win.png",
     description:
@@ -7,33 +35,20 @@ export const achievementsData = [
     links: [
       {
         name: "Devfolio",
-        url: "https://lnkd.in/e54iDjt3",
+        url: "https://devfolio.co/projects/screensmart-b0a3",
         type: "live",
       },
       {
         name: "Linkedin",
-        url: "https://lnkd.in/e54iDjt3",
+        url: "https://www.linkedin.com/posts/liza-glanisha-castelino-558802302_hackathonjourney-ai-machinelearning-activity-7313562219210825728-KnKS?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE1ckJQBEDoyI4PpsLs7SPnpDxTqbFgh7ys",
         type: "live",
       },
       {
         name: "Github",
-        url: "https://lnkd.in/e54iDjt3",
+        url: "https://github.com/Glanisha/ScreenSmart",
         type: "live",
       },
     ],
-  },
-
-  {
-    title: "Coding Competition Finalist",
-    description:
-      "Secured top 10 position in the International Competitive Programming Contest. Solved complex algorithmic problems under time constraints.",
-    links: [],
-  },
-  {
-    title: "Coding Competition Finalist",
-    description:
-      "Secured top 10 position in the International Competitive Programming Contest. Solved complex algorithmic problems under time constraints.",
-    links: [],
   },
 ];
 
