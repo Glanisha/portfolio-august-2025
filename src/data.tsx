@@ -60,17 +60,29 @@ export const aboutMeData = [
 
 export // Sample data (keeping your existing data)
 const projectsData = [
-{
-  title: "InternGuide",
-  imageSrc: "/intern.png",
-  description: "A comprehensive internship showcase and tracking platform with TF-IDF-based mentor-mentee matching, role-based access control for students/faculty/admins, Firebase resume storage, and automated email notifications via Nodemailer. Features real-time internship progress tracking, SDG (Sustainable Development Goals) mapping, PO/PEO alignment tracking, management dashboard with institution-wide analytics, and admin panel for internship listing management.                                                       Built with: MERN Stack • Python • Firebase • Nodemailer • TF-IDF Algorithm",
-  links: [
-    { name: "GitHub", url: "https://github.com/Glanisha/InternGuide", type: "github" },
-    { name: "PPT", url: "https://drive.google.com/file/d/1FWGbLUsY5n8WkbrO7CjYR6BY0fAzm3MD/view", type: "external" },
-    { name: "Video Demo", url: "https://drive.google.com/file/d/1Z27QPewM5Ow9hwI_T0peg5mpyTXmA0T3/view", type: "external" },
-  ],
-}
-,
+  {
+    title: "InternGuide",
+    imageSrc: "/intern.png",
+    description:
+      "A comprehensive internship showcase and tracking platform with TF-IDF-based mentor-mentee matching, role-based access control for students/faculty/admins, Firebase resume storage, and automated email notifications via Nodemailer. Features real-time internship progress tracking, SDG (Sustainable Development Goals) mapping, PO/PEO alignment tracking, management dashboard with institution-wide analytics, and admin panel for internship listing management.                                                       Built with: MERN Stack • Python • Firebase • Nodemailer • TF-IDF Algorithm",
+    links: [
+      {
+        name: "GitHub",
+        url: "https://github.com/Glanisha/InternGuide",
+        type: "github",
+      },
+      {
+        name: "PPT",
+        url: "https://drive.google.com/file/d/1FWGbLUsY5n8WkbrO7CjYR6BY0fAzm3MD/view",
+        type: "external",
+      },
+      {
+        name: "Video Demo",
+        url: "https://drive.google.com/file/d/1Z27QPewM5Ow9hwI_T0peg5mpyTXmA0T3/view",
+        type: "external",
+      },
+    ],
+  },
   {
     title: "Machine Learning Model",
     imageSrc: "/api/placeholder/600/400",
@@ -152,15 +164,30 @@ export const techStack = [
 
 export const experienceData = [
   {
-    title: "Software Development Intern",
+    title: "Frontend Developer Intern at Modern Solutions Hub",
     description:
-      "3-month internship at Tech Company ABC. Worked on full-stack development using MERN stack. Contributed to product features used by 10,000+ users. Collaborated with senior developers and gained experience in agile methodology.",
-    links: [
-      {
-        name: "LinkedIn",
-        url: "https://linkedin.com/in/YOUR_PROFILE",
-        type: "linkedin",
-      },
-    ],
+      "Modern Solutions Hub (5th Dec 2024 – 18th Mar 2025, Hybrid) – Developed and maintained frontend applications using Next.js, React.js, and Tailwind CSS. Implemented microfrontends architecture to enhance modularity and scalability of products.",
+    imageSrc: "/modern.png",
+  },
+  {
+    title: "Web Developer at Unsquare",
+    description:
+      "Unsquare (TripValue) (Jan 2025 – Mar 2025, Remote) – Collaborated on the development of a travel-focused web application to enhance user trip planning.",
+    imageSrc: "/unsquare.png",
+  },
+];
+
+export const softSkillsData = [
+  {
+    title: "Social Emotional Learning (SEL) for Youth Waging Peace",
+    imageSrc: "sel.png",
+  },
+  {
+    title: "SEEK: Self-directed Emotional Learning for Empathy and Kindness",
+    imageSrc: "seek.png",
+  },
+  {
+    title: "Presentation Skills",
+    imageSrc: "/ppt.png",
   },
 ];

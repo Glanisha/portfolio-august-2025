@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import {
   FaTimes,
-  FaExternalLinkAlt,
   FaGraduationCap,
   FaDatabase,
   FaCloud,
@@ -9,6 +8,7 @@ import {
   FaGlobe,
   FaLayerGroup,
 } from "react-icons/fa";
+import { softSkillsData } from "../data";
 
 interface CertificationsModalProps {
   isOpen: boolean;
@@ -21,6 +21,7 @@ const CertificationsModal: React.FC<CertificationsModalProps> = ({
 }) => {
   const [activeTab, setActiveTab] = useState("tech");
   const [activeCategory, setActiveCategory] = useState("all");
+  const [selectedCert, setSelectedCert] = useState<any>(null);
 
   if (!isOpen) return null;
 
@@ -52,20 +53,6 @@ const CertificationsModal: React.FC<CertificationsModalProps> = ({
       category: "web",
       imageSrc: "/api/placeholder/600/400",
       links: [{ name: "Certificate", url: "#", type: "live" }],
-    },
-  ];
-
-  // Soft skills data
-  const softSkillsData = [
-    {
-      title: "Leadership Training",
-      imageSrc: "/api/placeholder/600/400",
-      links: [{ name: "Certificate", url: "#", type: "live" }],
-    },
-    {
-      title: "Communication Skills",
-      imageSrc: "/api/placeholder/600/400",
-      links: [{ name: "View Certificate", url: "#", type: "live" }],
     },
   ];
 
@@ -180,36 +167,20 @@ const CertificationsModal: React.FC<CertificationsModalProps> = ({
 
         {/* Tech */}
         {activeTab === "tech" && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {filteredTech.map((cert, index) => (
-              <div
-                key={index}
-                className="bg-[#21262d] border border-[#30363d] rounded-xl p-5 flex flex-col hover:bg-[#2a3139] transition-colors group"
-              >
-                <div className="w-full h-56 mb-4 overflow-hidden rounded-lg bg-[#30363d]">
+              <div key={index} className="flex flex-col items-center">
+                <div className="w-full h-64 flex items-center justify-center bg-transparent">
                   <img
                     src={cert.imageSrc}
                     alt={cert.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
+                    className="max-h-64 w-auto object-contain rounded-lg cursor-pointer transition-transform duration-200 hover:scale-105"
+                    onClick={() => setSelectedCert(cert)}
                   />
                 </div>
-                <h3 className="text-white text-lg font-semibold mb-3 text-center">
+                <h3 className="text-white text-lg font-semibold mt-4 mb-1 text-center">
                   {cert.title}
                 </h3>
-                <div className="flex flex-wrap justify-center gap-3 mt-auto">
-                  {cert.links?.map((link, linkIndex) => (
-                    <a
-                      key={linkIndex}
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 rounded-md transition-colors flex items-center gap-2 text-xs"
-                    >
-                      <FaExternalLinkAlt className="w-3 h-3" />
-                      {link.name}
-                    </a>
-                  ))}
-                </div>
               </div>
             ))}
           </div>
@@ -217,41 +188,54 @@ const CertificationsModal: React.FC<CertificationsModalProps> = ({
 
         {/* Soft Skills */}
         {activeTab === "soft" && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {softSkillsData.map((skill, index) => (
-              <div
-                key={index}
-                className="bg-[#21262d] border border-[#30363d] rounded-xl p-5 flex flex-col hover:bg-[#2a3139] transition-colors group"
-              >
-                <div className="w-full h-56 mb-4 overflow-hidden rounded-lg bg-[#30363d]">
+              <div key={index} className="flex flex-col items-center">
+                <div className="w-full h-64 flex items-center justify-center bg-transparent">
                   <img
                     src={skill.imageSrc}
                     alt={skill.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
+                    className="max-h-64 w-auto object-contain rounded-lg cursor-pointer transition-transform duration-200 hover:scale-105"
+                    onClick={() => setSelectedCert(skill)}
                   />
                 </div>
-                <h3 className="text-white text-lg font-semibold mb-3 text-center">
+                <h3 className="text-white text-lg font-semibold mt-4 mb-1 text-center">
                   {skill.title}
                 </h3>
-                <div className="flex flex-wrap justify-center gap-3 mt-auto">
-                  {skill.links?.map((link, linkIndex) => (
-                    <a
-                      key={linkIndex}
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 rounded-md transition-colors flex items-center gap-2 text-xs"
-                    >
-                      <FaExternalLinkAlt className="w-3 h-3" />
-                      {link.name}
-                    </a>
-                  ))}
-                </div>
               </div>
             ))}
           </div>
         )}
       </div>
+
+      {/* Fullscreen Certificate Modal */}
+      {selectedCert && (
+        <div
+          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/80 backdrop-blur-sm"
+          onClick={() => setSelectedCert(null)}
+        >
+          <button
+            onClick={() => setSelectedCert(null)}
+            className="absolute top-6 right-6 text-gray-300 hover:text-white transition-colors bg-[#21262d]/80 rounded-full p-3"
+            tabIndex={-1}
+          >
+            <FaTimes className="w-6 h-6" />
+          </button>
+          <div
+            className="max-w-4xl w-full p-4 flex flex-col items-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={selectedCert.imageSrc}
+              alt={selectedCert.title}
+              className="max-h-[80vh] w-auto object-contain rounded-lg shadow-lg border border-[#30363d]"
+            />
+            <h3 className="text-white text-xl font-semibold text-center mt-4">
+              {selectedCert.title}
+            </h3>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
