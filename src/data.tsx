@@ -190,6 +190,20 @@ export const experienceData = [
       "Unsquare (TripValue) (Jan 2025 – Mar 2025, Remote) – Collaborated on the development of a travel-focused web application to enhance user trip planning.",
     imageSrc: "/unsquare.png",
   },
+ {
+    title: "Volunteer at Mumbai Sustainability Centre",
+    description:
+      "Mumbai Sustainability Centre (Jan 2025 – Mar 2025) – Collaborated with a team of 10 students on the Walking Project to survey and map Mumbai's walkability infrastructure. Conducted field research on SV Road, covering over 25 km of footpaths, collected on-ground data and images, and developed a comprehensive website showcasing findings to support urban planning and sustainable mobility initiatives.",
+    imageSrc: "/go2.png",
+    links: [
+      {
+        name: "Letter",
+        url: "/ngo.pdf",
+        type: "link",
+      },
+    ],
+}
+
 ];
 
 export const softSkillsData = [

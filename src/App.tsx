@@ -16,7 +16,7 @@ import {
 } from "react-icons/fa";
 import { achievementsData, projectsData, techStack, experienceData } from "./data";
 import CertificationsModal from "./components/CertificationsModal";
-
+import { MeAbout } from "./components/MeAbout"; 
 
 interface ModalData {
   title: string;
@@ -187,8 +187,8 @@ const App: React.FC = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [currentModalIndex, setCurrentModalIndex] = useState(0);
   const [modalItems, setModalItems] = useState<ModalData[]>([]);
+  const [aboutOpen, setAboutOpen] = useState(false);
   const [certificationsModalOpen, setCertificationsModalOpen] = useState(false);
-  
 
   const openModal = (items: ModalData[]) => {
     setModalItems(items);
@@ -301,9 +301,9 @@ const App: React.FC = () => {
           </span>
         </div>
 
-        {/* 3. About Me - Updated to use new component */}
+        {/* 3. About Me - Fixed */}
         <div
-    
+          onClick={() => setAboutOpen(true)}
           className="order-3 md:col-span-4 md:row-span-1 bg-[#161b22] border border-[#30363d] rounded-2xl p-4 md:p-6 flex items-center justify-center cursor-pointer hover:bg-[#21262d] transition-colors"
         >
           <FaInfoCircle className="w-6 h-6 text-white mr-3 flex-shrink-0" />
@@ -359,7 +359,7 @@ const App: React.FC = () => {
         >
           <FaBriefcase className="w-6 h-6 text-white mb-2 flex-shrink-0" />
           <span className="text-white font-medium text-base md:text-lg">
-            Experience
+           Experience & Volunteer Work
           </span>
         </div>
 
@@ -374,7 +374,7 @@ const App: React.FC = () => {
           </span>
         </div>
 
-        {/* 7. Certifications - Updated to use imported modal */}
+        {/* 7. Certifications */}
         <div
           onClick={() => setCertificationsModalOpen(true)}
           className="order-7 md:col-span-4 md:row-span-1 bg-[#161b22] border border-[#30363d] rounded-2xl p-4 md:p-6 flex flex-col items-center justify-center cursor-pointer hover:bg-[#21262d] transition-colors text-center"
@@ -397,6 +397,7 @@ const App: React.FC = () => {
         </div>
       </div>
 
+      {/* Modals - Moved to the end and fixed */}
       {modalOpen && (
         <Modal
           items={modalItems}
@@ -411,7 +412,7 @@ const App: React.FC = () => {
         onClose={() => setCertificationsModalOpen(false)}
       />
 
-      
+      <MeAbout isOpen={aboutOpen} onClose={() => setAboutOpen(false)} />
     </div>
   );
 };
