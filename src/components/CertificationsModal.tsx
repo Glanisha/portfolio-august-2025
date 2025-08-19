@@ -7,6 +7,7 @@ import {
   FaCode,
   FaGlobe,
   FaLayerGroup,
+  FaPalette
 } from "react-icons/fa";
 import { softSkillsData } from "../data";
 
@@ -28,41 +29,60 @@ const CertificationsModal: React.FC<CertificationsModalProps> = ({
   // Tech certifications data with categories
   const certificationsData = [
     {
-      title: "AWS Solutions Architect",
-      category: "cloud",
-      imageSrc: "/sql.png",
+      title: "The Complete Full-Stack Web Development Bootcamp",
+      category: "web",
+      imageSrc: "/webdev.png",
       links: [
-        { name: "View Certificate", url: "#", type: "live" },
-        { name: "Verify", url: "#", type: "live" },
+        { name: "View Certificate", url: "https://ude.my/UC-39f43a82-5364-4646-bcd2-55b256c6067f", type: "live" },
+        { name: "Verify", url: "https://ude.my/UC-39f43a82-5364-4646-bcd2-55b256c6067f", type: "live" },
       ],
     },
     {
-      title: "Google Machine Learning Engineer",
-      category: "ml",
-      imageSrc: "/api/placeholder/600/400",
-      links: [{ name: "Certificate", url: "#", type: "live" }],
-    },
-    {
-      title: "SQL Expert Certification",
-      category: "sql",
-      imageSrc: "/sql.png",
-      links: [{ name: "View Certificate", url: "#", type: "live" }],
-    },
-    {
-      title: "Frontend Web Developer",
+      title: "Spring Boot 3, Spring 6 & Hibernate for Beginners",
       category: "web",
-      imageSrc: "/api/placeholder/600/400",
-      links: [{ name: "Certificate", url: "#", type: "live" }],
+      imageSrc: "/springboot.png",
+      links: [
+        { name: "View Certificate", url: "https://ude.my/UC-c7b76920-6ae9-436b-a775-28cdee6a4994", type: "live" },
+        { name: "Verify", url: "https://ude.my/UC-c7b76920-6ae9-436b-a775-28cdee6a4994", type: "live" },
+      ],
+    },
+    {
+      title: "SQL (Basic)",
+      category: "sql",
+      imageSrc: "/sqlbasic.png",
+      links: [
+        { name: "View Certificate", url: "#", type: "live" },
+        { name: "Verify on HackerRank", url: "https://www.hackerrank.com/certificates/411E8AE25F3", type: "live" },
+      ],
+    },
+    {
+      title: "SQL (Intermediate)",
+      category: "sql",
+      imageSrc: "/sqlinter.png",
+      links: [
+        { name: "View Certificate", url: "#", type: "live" },
+        { name: "Verify on HackerRank", url: "https://www.hackerrank.com/certificates/26CFF27D1BEC", type: "live" },
+      ],
+    },
+    {
+      title: "Graphic Design With Photoshop",
+      category: "design",
+      imageSrc: "/photoshop.png",
+      links: [
+        { name: "View Certificate", url: "https://ude.my/UC-42e1f77e9-765f-491b-b9a6-8a1d8ae9c0dd", type: "live" },
+        { name: "Verify", url: "https://ude.my/UC-42e1f77e9-765f-491b-b9a6-8a1d8ae9c0dd", type: "live" },
+      ],
     },
   ];
 
-  // Categories
+  // Updated categories (added design category)
   const categories = [
     { id: "all", label: "All", icon: FaLayerGroup },
     { id: "sql", label: "SQL", icon: FaDatabase },
     { id: "web", label: "Web Dev", icon: FaGlobe },
-    { id: "cloud", label: "Cloud", icon: FaCloud },
-    { id: "ml", label: "ML/AI", icon: FaCode },
+    { id: "design", label: "Design", icon: FaPalette },
+    // { id: "cloud", label: "Cloud", icon: FaCloud },
+    // { id: "ml", label: "ML/AI", icon: FaCode },
   ];
 
   // Filtered data
@@ -178,9 +198,24 @@ const CertificationsModal: React.FC<CertificationsModalProps> = ({
                     onClick={() => setSelectedCert(cert)}
                   />
                 </div>
-                <h3 className="text-white text-lg font-semibold mt-4 mb-1 text-center">
+                <h3 className="text-white text-lg font-semibold mt-4 mb-2 text-center">
                   {cert.title}
                 </h3>
+                {cert.links && cert.links.length > 0 && (
+                  <div className="flex flex-wrap justify-center gap-2">
+                    {cert.links.map((link, linkIndex) => (
+                      <a
+                        key={linkIndex}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-3 py-1 bg-blue-600/80 hover:bg-blue-600 text-white rounded text-xs transition-colors duration-200"
+                      >
+                        {link.name}
+                      </a>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -199,9 +234,25 @@ const CertificationsModal: React.FC<CertificationsModalProps> = ({
                     onClick={() => setSelectedCert(skill)}
                   />
                 </div>
-                <h3 className="text-white text-lg font-semibold mt-4 mb-1 text-center">
+                <h3 className="text-white text-lg font-semibold mt-4 mb-2 text-center">
                   {skill.title}
                 </h3>
+                {/* Only show links if they exist - Fixed TypeScript error */}
+                {(skill as any).links && (skill as any).links.length > 0 && (
+                  <div className="flex flex-wrap justify-center gap-2">
+                    {(skill as any).links.map((link: any, linkIndex: number) => (
+                      <a
+                        key={linkIndex}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-3 py-1 bg-blue-600/80 hover:bg-blue-600 text-white rounded text-xs transition-colors duration-200"
+                      >
+                        {link.name}
+                      </a>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -228,11 +279,28 @@ const CertificationsModal: React.FC<CertificationsModalProps> = ({
             <img
               src={selectedCert.imageSrc}
               alt={selectedCert.title}
-              className="max-h-[80vh] w-auto object-contain rounded-lg shadow-lg border border-[#30363d]"
+              className="max-h-[70vh] w-auto object-contain rounded-lg shadow-lg border border-[#30363d]"
             />
-            <h3 className="text-white text-xl font-semibold text-center mt-4">
+            <h3 className="text-white text-xl font-semibold text-center mt-4 mb-4">
               {selectedCert.title}
             </h3>
+            
+            {/* Certificate Links */}
+            {selectedCert.links && selectedCert.links.length > 0 && (
+              <div className="flex flex-wrap justify-center gap-3 mt-4">
+                {selectedCert.links.map((link: any, index: number) => (
+                  <a
+                    key={index}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 font-medium text-sm"
+                  >
+                    {link.name}
+                  </a>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       )}
